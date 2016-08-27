@@ -5,29 +5,6 @@ const sqlite3 = require('sqlite3').verbose();
 let id = 2;
 let messages = [];
 
-const db = new sqlite3.Database(':memory:');
-
-db.serialize(function() {
-  db.run("CREATE TABLE lorem (name TEXT, msg TEXT)");
-
-  var stmt = db.prepare("INSERT INTO lorem (name, msg) VALUES (?, ?)");
-  stmt.run("Jason", "Hey boys :)");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.run("Mike", "just logged on wats poppin lol");
-  stmt.finalize();
-
-  db.each("SELECT rowid AS id, name, msg FROM lorem", function(err, row) {
-      console.log(row.id + " YOU SAY " + row.name + " I SAY " + row.msg);
-  });
-});
-
 const app = express();
 
 app.use(function(req, res, next) {
@@ -43,17 +20,8 @@ app.get('/', (req, res) => {
 });
 
 app.get('/messages', (req, res) => {
-  let nMostRecent = [];
   console.log("served response");
-  db.each("SELECT rowid AS id, name, msg FROM lorem ", function(err, row) {
-      nMostRecent.push({
-        id: row.id,
-        name: row.name,
-        msg: row.msg
-      });
-  });
-  console.log(nMostRecent);
-  res.json(nMostRecent);
+  res.json(messages);
 });
 
 app.post('/messages', (req, res) => {
