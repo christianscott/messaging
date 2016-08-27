@@ -1,6 +1,6 @@
 const gulp = require('gulp'),
-			sass = require('gulp-sass'),
-			jade = require('gulp-jade');
+      sass = require('gulp-sass'),
+      jade = require('gulp-jade');
 
 const browserSync = require('browser-sync').create();
 
@@ -26,9 +26,9 @@ gulp.task('sass', function() {
 });
 
 gulp.task('jade', function() {
-	return gulp.src("src/*.jade")
-				.pipe(jade())
-				.pipe(gulp.dest("dist"))
+  return gulp.src("src/*.jade")
+        .pipe(jade())
+        .pipe(gulp.dest("dist"))
 })
 
 gulp.task('default', ['serve']);
