@@ -1,0 +1,25 @@
+body {
+  padding: 3em;
+  background-color: cornflowerblue;
+  width: 600px; }
+
+h1, h2, em {
+  text-decoration: underline; }
+
+li {
+  list-style-type: none;
+  padding: 3px;
+  margin: 2px;
+  background-color: #eee; }
+
+ul {
+  padding-left: 0; }
+
+p {
+  display: inline-block; }
+
+.msg {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em; }
