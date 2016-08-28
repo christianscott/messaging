@@ -5,6 +5,7 @@
     - fix <li> css to allow larger messages
     - make responsive
     - make a chat bot (lol)
+    - delete messages across all instances
 */
 
 // set up basic express server

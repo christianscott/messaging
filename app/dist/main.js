@@ -1,9 +1,20 @@
-let socket = io()
+const socket = io()
 
-const mention = function(data) {
+let msgCount = 0;
+
+function mention(data) {
   const messageBox = document.getElementById('text-box');
   messageBox.value = `@${ data } `;
   messageBox.focus();
+}
+
+function deleteMessage(data) {
+  const msg = $(data).parent();
+  msg.hide();
+  msgCount--;
+  if (msgCount == 0) {
+    $('#no-messages').show('fast');
+  }
 }
 
 $('form').submit(() => {
@@ -13,17 +24,15 @@ $('form').submit(() => {
 })
 
 socket.on('chat message', (msg) => {
+  msgCount++;
+  console.log(msgCount);
   let newMsg = '<li><div><span class="stamp">' +
                'user at some point in time - ' +
                '</span><span class="msg">' + msg +
                '</span></div><a href="#" ' +
-               'onclick="console.log(\'woah word\')" ' +
+               'onclick="deleteMessage(this);" ' +
                'class="delete-user">✕</a></li>';
 
   $('#messages').append(newMsg);
   $('#no-messages').hide('fast');
-})
-
-socket.on('fuck up', () => {
-  alert('fuck you');
 })
