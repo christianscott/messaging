@@ -1,29 +1,134 @@
+$window-height: 80vh;
+$window-width: 73vw;
+$window-margin: floor((100 - $window-height)/2);
+
+$chat-window-width: $window-width - 20 - (2 * 3);
+
 body {
-  padding: 3em;
+  margin: 0;
+  padding: 0;
   background-color: cornflowerblue;
-  width: 600px;
+  color: darkslategray;
 }
 
-h1, h2, em {
-  text-decoration: underline;
-}
-
-li {
-  list-style-type: none;
-  padding: 3px;
-  margin: 2px;
-  background-color: #eee;
-}
-
-ul { padding-left: 0}
-
-p {
-  display: inline-block;
-}
-
-.msg {
+.content-wrap {
+  background-color: mintcream;
+  height: $window-height;
+  width: $window-width;
+  margin: $window-margin auto $window-margin auto;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0.5em;
+  box-shadow: 3vh 3vh steelblue;
+  padding: 3em;
+
+  .sidebar {
+    min-width: 20vw;
+    display: flex;
+    flex-direction: column;
+
+    .who-online {
+      color: slategray;
+      line-height: 2em;
+    }
+
+    h2 {
+      padding: 0;
+      margin: 0;
+    }
+
+    h3 {
+      font-size: 1em;
+      color: slategray;
+    }
+
+    ul {
+      padding: 0;
+      li {
+        font-size: 1em;
+        list-style: none;
+      }
+    }
+  }
+
+  .chat-window {
+    width: $chat-window-width;
+    border: 3px solid whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    .messages {
+      overflow-y: scroll;
+      flex-grow: 1;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+
+      ul {
+        padding: 0;
+
+        li {
+          padding: 0.5em;
+          list-style: none;
+          border-bottom: 3px solid whitesmoke;
+          display: flex;
+          justify-content: space-between;
+
+          .stamp {
+            color: cornflowerblue;
+            font-style: italic;
+          }
+
+          p {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    .message-box {
+      height: 2.3em;
+      width: 100%;
+      background-color: cornflowerblue;
+      display: flex;
+      justify-content: space-between;
+
+      #text-box {
+        width: 67%;
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .send {
+        display: flex;
+        overflow: hidden;
+
+        cursor: pointer;
+        user-select: none;
+        transition: all 60ms ease-in-out;
+        text-align: center;
+        white-space: nowrap;
+        text-decoration: none !important;
+        text-transform: none;
+        text-transform: capitalize;
+
+        color: #fff;
+        border: 0 none;
+
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 1.3;
+
+        -webkit-appearance: none;
+        -moz-appearance:    none;
+        appearance:         none;
+
+        justify-content: center;
+        align-items: center;
+        flex: 0 0 33%;
+      }
+    }
+  }
 }
