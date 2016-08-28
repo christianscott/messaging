@@ -29,6 +29,6 @@ gulp.task('jade', function() {
   return gulp.src("src/*.jade")
         .pipe(jade())
         .pipe(gulp.dest("dist"))
-})
+});
 
 gulp.task('default', ['serve']);
