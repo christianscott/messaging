@@ -1,8 +1,6 @@
 # messaging
 
-Not currently working. Rows from SQL query are not being added to nMostRecent
-in app.js. Maybe an async problem? Array returned before query is completed?
-This language is weird af
+Working locally. Several features to be added still
 
 TODO:
   - implement nicknames
