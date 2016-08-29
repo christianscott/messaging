@@ -16,7 +16,7 @@ body {
     min-width: 20vw;
     display: flex;
     flex-direction: column; }
-    .content-wrap .sidebar .who-online {
+    .content-wrap .sidebar #who-online {
       color: slategray;
       line-height: 2em; }
     .content-wrap .sidebar h2 {

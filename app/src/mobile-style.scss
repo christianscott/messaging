@@ -13,26 +13,30 @@ body {
 
 .content-wrap {
   background-color: mintcream;
-  height: $window-height;
-  width: $window-width;
-  margin: $window-margin auto $window-margin auto;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
   display: flex;
-  box-shadow: 3vh 3vh steelblue;
-  padding: 3em;
+  flex-direction: column;
+  padding: 5vw;
 
   .sidebar {
     min-width: 20vw;
     display: flex;
     flex-direction: column;
+    flex-grow: 0;
+    align-items: flex-end;
 
     #who-online {
       color: slategray;
       line-height: 2em;
+      display: none;
     }
 
     h2 {
       padding: 0;
       margin: 0;
+      font-size: 2em;
     }
 
     h3 {
@@ -50,7 +54,8 @@ body {
   }
 
   .chat-window {
-    width: $chat-window-width;
+    width: auto;
+    flex-grow: 1;
     border: 3px solid whitesmoke;
     display: flex;
     flex-direction: column;
@@ -87,7 +92,7 @@ body {
     }
 
     .message-box {
-      height: 2.3em;
+      min-height: 2.3em;
       width: 100%;
       background-color: cornflowerblue;
       display: flex;
@@ -117,7 +122,7 @@ body {
         color: #fff;
         border: 0 none;
 
-        font-size: 14px;
+        font-size: 1em;
         font-weight: 500;
         line-height: 1.3;
 

@@ -1,18 +1,21 @@
 doctype html
 head
   meta(charset="utf-8")
+  meta(name="viewport", content="width=device-width, initial-scale=1")
+  
   title Learn JS fam
   link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", 
        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
-  link(rel="stylesheet", href="/style.css")
+  link(rel="stylesheet", media='screen and (max-width: 900px)', href="/mobile-style.css")
+  link(rel="stylesheet", media='all and (min-width: 901px)', href="/style.css")
 body  
   .content-wrap 
     .sidebar
       h2 chat app
-      h3 users online: 2
-      ul.who-online
-        li <a onclick="mention(this.innerHTML);", href="#">datboi</a> - since 11:03 am
-        li <a onclick="mention(this.innerHTML);", href="#">skiddy_steve</a> - since 9:31 pm
+      h3 users online: 
+        span#num-users 0
+      ul#who-online
+        
 
     .chat-window
       .messages
@@ -25,4 +28,17 @@ body
       
   script(src="/socket.io/socket.io.js", charset="utf-8")
   script(src="http://code.jquery.com/jquery-1.11.1.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js")
+  script(id="msg-template", type="x-tmpl-mustache").
+    <li>
+      <div>
+        <div class="stamp">{{ username }} at {{ time }} - </div>
+        <div class="msg">{{ msg }}</div>
+      </div>
+      <a href="#" onclick="deleteMessage(this);" class="delete-user">✕</a>
+    </li>
+  script(id="user-template", type="x-tmpl-mustache").
+    <li id={{ username }}>
+      <a onclick="mention(this.innerHTML);", href="#">{{ username }}</a> - since {{ connectTime }}
+    </li>
   script(src="/main.js")
