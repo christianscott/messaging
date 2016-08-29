@@ -49,11 +49,19 @@ body {
           border-bottom: 3px solid whitesmoke;
           display: flex;
           justify-content: space-between; }
-          .content-wrap .chat-window .messages ul li .stamp {
-            color: cornflowerblue;
-            font-style: italic; }
-          .content-wrap .chat-window .messages ul li p {
-            margin-bottom: 0; }
+          .content-wrap .chat-window .messages ul li .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1; }
+            .content-wrap .chat-window .messages ul li .left .stamp {
+              display: flex; }
+              .content-wrap .chat-window .messages ul li .left .stamp .username {
+                color: cornflowerblue; }
+              .content-wrap .chat-window .messages ul li .left .stamp .time {
+                margin-left: 0.5em;
+                color: lightslategray;
+                font-style: italic; }
     .content-wrap .chat-window .message-box {
       height: 2.3em;
       width: 100%;

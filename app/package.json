@@ -1,8 +1,8 @@
 {
   "name": "Quick-setup",
-  "description": "Basic Gulp niceties for rapidly building stuff",
+  "description": "",
   "version": "0.0.2",
-  "author": "Ben Frain",
+  "author": "Christian Scott",
   "private": true,
   "devDependencies": {
     "browser-sync": "^2.14.0",

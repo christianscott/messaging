@@ -2,8 +2,10 @@ doctype html
 head
   meta(charset="utf-8")
   meta(name="viewport", content="width=device-width, initial-scale=1")
+  meta(name="apple-mobile-web-app-capable" content="yes")
+  link(rel="icon", href="/favicon.ico", type="image/x-icon")
   
-  title Learn JS fam
+  title chat app
   link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", 
        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
   link(rel="stylesheet", media='screen and (max-width: 900px)', href="/mobile-style.css")
@@ -23,17 +25,22 @@ body
           li#no-messages <em>no messages to show :(</em>
 
       form(action="").message-box
-        input(placeholder="type message here", autocomplete="off")#text-box
+        input(placeholder="type message here", autocomplete="off", maxlength="140")#text-box
         button.send send
       
   script(src="/socket.io/socket.io.js", charset="utf-8")
   script(src="http://code.jquery.com/jquery-1.11.1.js")
   script(src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js")
   script(id="msg-template", type="x-tmpl-mustache").
-    <li>
-      <div>
-        <div class="stamp">{{ username }} at {{ time }} - </div>
-        <div class="msg">{{ msg }}</div>
+    <li class="message">
+      <div class="left">
+        <div class="stamp">
+          <div class="username">{{ username }}</div>
+          <div class="time">at {{ time }}</div>
+        </div>
+        <div class="msg">
+          {{ msg }}
+        </div>
       </div>
       <a href="#" onclick="deleteMessage(this);" class="delete-user">✕</a>
     </li>

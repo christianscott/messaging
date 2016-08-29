@@ -74,14 +74,28 @@ body {
           display: flex;
           justify-content: space-between;
 
-          .stamp {
-            color: cornflowerblue;
-            font-style: italic;
+          .left {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+
+            .stamp {
+              display: flex;
+
+              .username {
+                color: cornflowerblue;
+              }
+
+              .time {
+                margin-left: 0.5em;
+                color: lightslategray;
+                font-style: italic;
+              }
+            }
+
           }
 
-          p {
-            margin-bottom: 0;
-          }
         }
       }
     }
