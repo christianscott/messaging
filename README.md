@@ -28,6 +28,6 @@ $ node app
 and connect to [port 3100](http://localhost:3100) on your machine. Open in several browsers/tabs to see the full effect.
 
 There are several features that I would like to implement in the future:
-  - implement user chosen nicknames
+  - user chosen nicknames
   - make a chat bot so there is always something to interact with
-  - make rooms
+  - rooms
